@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/pramasyana/bibit.id/src/modules/question/domain"
+	"github.com/pramasyana/bibit.id/src/shared"
 )
 
 type QuestionUsecaseImpl struct{}
@@ -73,4 +74,13 @@ func (q *QuestionUsecaseImpl) RemoveDuplicate(text []string) []string {
 		}
 	}
 	return result
+}
+
+func (q *QuestionUsecaseImpl) QuestionNumber2List(text string) (resp []domain.ResponseNumber2List, err error) {
+	_, err = shared.RequestHTTP("GET", "http://www.omdbapi.com/?apikey=faf7e5bb&s=Batman&page=1", nil, resp, nil)
+	return resp, err
+}
+
+func (q *QuestionUsecaseImpl) QuestionNumber2Detail(text string) (resp domain.ResponseNumber2Detail, err error) {
+	return resp, nil
 }
