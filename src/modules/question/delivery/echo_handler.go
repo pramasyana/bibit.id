@@ -2,6 +2,7 @@ package delivery
 
 import (
 	"github.com/labstack/echo"
+	"github.com/pramasyana/bibit.id/src/shared"
 )
 
 type EchoHandler struct{}
@@ -16,5 +17,7 @@ func (h *EchoHandler) Mount(group *echo.Group) {
 
 // Number1 ...
 func (h *EchoHandler) Number1(c echo.Context) error {
-	return nil
+	response := new(shared.JSONSchemaTemplate)
+
+	return response.SetSuccess(shared.Empty{}, "Success").ShowHTTPResponse(c)
 }

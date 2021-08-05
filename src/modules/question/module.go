@@ -1,7 +1,14 @@
 package question
 
-type Module struct{}
+import "github.com/pramasyana/bibit.id/src/modules/question/delivery"
+
+type Module struct {
+	RestHandler *delivery.EchoHandler
+}
 
 func NewModule() *Module {
-	return &Module{}
+	restHandler := delivery.NewEchoHandler()
+	return &Module{
+		RestHandler: restHandler,
+	}
 }
