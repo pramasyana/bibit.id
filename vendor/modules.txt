@@ -1,3 +1,5 @@
+# github.com/davecgh/go-spew v1.1.1
+github.com/davecgh/go-spew/spew
 # github.com/labstack/echo v3.3.10+incompatible
 ## explicit
 github.com/labstack/echo
@@ -9,8 +11,15 @@ github.com/labstack/gommon/log
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.9
 github.com/mattn/go-isatty
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/stretchr/objx v0.3.0
+## explicit
+github.com/stretchr/objx
 # github.com/stretchr/testify v1.7.0
 ## explicit
+github.com/stretchr/testify/assert
+github.com/stretchr/testify/mock
 # github.com/valyala/bytebufferpool v1.0.0
 github.com/valyala/bytebufferpool
 # github.com/valyala/fasttemplate v1.0.1
@@ -29,3 +38,6 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
+# gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+## explicit
+gopkg.in/yaml.v3
