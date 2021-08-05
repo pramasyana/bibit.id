@@ -1,4 +1,17 @@
 #### Question Number 1
+```console
+Table:
+id | username | parent
+1  | Ali      | 2
+2  | Budi     | 0
+3  | Cecep    | 1
+
+Expected:
+id | username | parentUsername
+1  | Ali      | Budi
+2  | Budi     | null
+3  | Cecep    | Ali
+```
 
 ```console
 GET localhost:8080/question/number1
