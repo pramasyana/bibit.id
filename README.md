@@ -30,6 +30,8 @@ Response:
 }
 ```
 
+
+
 #### Question Number 2 List
 
 ```console
@@ -120,10 +122,12 @@ Response:
 }
 ```
 
+
+
 #### Question Number 2 Detail
 
 ```console
-GET localhost:8080/question/number2/list?search=batman&page=1
+GET localhost:8080/question/number2/detail?id=tt2820852
 ```
 
 ```console
@@ -133,43 +137,49 @@ Response:
     "code": 200,
     "message": "Success",
     "data": {
-        "Title": "Batman: Under the Red Hood",
-        "Year": "2010",
+        "Title": "Fast & Furious 7",
+        "Year": "2015",
         "Rated": "PG-13",
-        "Released": "27 Jul 2010",
-        "Runtime": "75 min",
-        "Genre": "Animation, Action, Crime, Drama, Mystery, Sci-Fi, Thriller",
-        "Director": "Brandon Vietti",
-        "Writer": "Judd Winick, Bob Kane (Batman created by)",
-        "Actors": "Bruce Greenwood, Jensen Ackles, John DiMaggio, Neil Patrick Harris",
-        "Plot": "There's a mystery afoot in Gotham City, and Batman must go toe-to-toe with a mysterious vigilante, who goes by the name of Red Hood. Subsequently, old wounds reopen and old, once buried memories come into the light.",
-        "Language": "English",
-        "Country": "USA",
-        "Awards": "1 nomination.",
-        "Poster": "https://m.media-amazon.com/images/M/MV5BNmY4ZDZjY2UtOWFiYy00MjhjLThmMjctOTQ2NjYxZGRjYmNlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+        "Released": "03 Apr 2015",
+        "Runtime": "137 min",
+        "Genre": "Action, Adventure, Thriller",
+        "Director": "James Wan",
+        "Writer": "Chris Morgan, Gary Scott Thompson",
+        "Actors": "Vin Diesel, Paul Walker, Dwayne Johnson",
+        "Plot": "Deckard Shaw seeks revenge against Dominic Toretto and his family for his comatose brother.",
+        "Language": "English, Thai, Arabic, Spanish",
+        "Country": "United States, China, Japan, Canada, United Arab Emirates",
+        "Awards": "35 wins & 36 nominations",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTQxOTA2NDUzOV5BMl5BanBnXkFtZTgwNzY2MTMxMzE@._V1_SX300.jpg",
         "Ratings": [
             {
                 "Source": "Internet Movie Database",
-                "Value": "8.1/10"
+                "Value": "7.1/10"
             },
             {
                 "Source": "Rotten Tomatoes",
-                "Value": "100%"
+                "Value": "82%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "67/100"
             }
         ],
-        "Metascore": "N/A",
-        "imdbRating": "8.1",
-        "imdbVotes": "56,401",
-        "imdbID": "tt1569923",
+        "Metascore": "67",
+        "imdbRating": "7.1",
+        "imdbVotes": "369,515",
+        "imdbID": "tt2820852",
         "Type": "movie",
-        "DVD": "N/A",
-        "BoxOffice": "N/A",
-        "Production": "DC Entertainment, Warner Bros. Animation",
+        "DVD": "01 Mar 2016",
+        "BoxOffice": "$353,007,020",
+        "Production": "Original Film",
         "Website": "N/A",
         "Response": "True"
     }
 }
 ```
+
+
 
 #### Question Number 3
 
@@ -196,6 +206,8 @@ Response:
     }
 }
 ```
+
+
 
 #### Question Number 4
 
