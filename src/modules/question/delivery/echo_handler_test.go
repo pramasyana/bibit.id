@@ -259,3 +259,157 @@ func TestEchoHandler_Number4(t *testing.T) {
 		})
 	}
 }
+
+func TestEchoHandler_Number2List(t *testing.T) {
+	type fields struct {
+		QuestionUsecase usecase.QuestionUsecase
+	}
+	type args struct {
+		c echo.Context
+	}
+	tests := []struct {
+		name    string
+		fields  fields
+		args    args
+		wantErr bool
+	}{
+		{
+			name: "Case 1: Success",
+			fields: fields{
+				QuestionUsecase: func() usecase.QuestionUsecase {
+					mocksQuestionUsecase := new(mocksQuestionUsecase.QuestionUsecase)
+					mocksQuestionUsecase.On("QuestionNumber2List", mock.Anything).Return(&domain.ResponseNumber2List{}, nil)
+					return mocksQuestionUsecase
+				}(),
+			},
+			args: args{
+				c: echo.New().NewContext(
+					httptest.NewRequest(http.MethodGet, "/number2/list", nil),
+					httptest.NewRecorder(),
+				),
+			},
+			wantErr: false,
+		},
+		{
+			name: "Case 2: Error QuestionNumber2List",
+			fields: fields{
+				QuestionUsecase: func() usecase.QuestionUsecase {
+					mocksQuestionUsecase := new(mocksQuestionUsecase.QuestionUsecase)
+					mocksQuestionUsecase.On("QuestionNumber2List", mock.Anything).Return(&domain.ResponseNumber2List{}, errors.New("error"))
+					return mocksQuestionUsecase
+				}(),
+			},
+			args: args{
+				c: echo.New().NewContext(
+					httptest.NewRequest(http.MethodGet, "/number2/list", nil),
+					httptest.NewRecorder(),
+				),
+			},
+			wantErr: false,
+		},
+		{
+			name: "Case 3: Error Params",
+			fields: fields{
+				QuestionUsecase: func() usecase.QuestionUsecase {
+					mocksQuestionUsecase := new(mocksQuestionUsecase.QuestionUsecase)
+					mocksQuestionUsecase.On("QuestionNumber2List", mock.Anything).Return(&domain.ResponseNumber2List{}, errors.New("error"))
+					return mocksQuestionUsecase
+				}(),
+			},
+			args: args{
+				c: echo.New().NewContext(
+					httptest.NewRequest(http.MethodPost, "/number2/list", nil),
+					httptest.NewRecorder(),
+				),
+			},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			h := &EchoHandler{
+				QuestionUsecase: tt.fields.QuestionUsecase,
+			}
+			if err := h.Number2List(tt.args.c); (err != nil) != tt.wantErr {
+				t.Errorf("EchoHandler.Number2List() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
+}
+
+func TestEchoHandler_Number2Detail(t *testing.T) {
+	type fields struct {
+		QuestionUsecase usecase.QuestionUsecase
+	}
+	type args struct {
+		c echo.Context
+	}
+	tests := []struct {
+		name    string
+		fields  fields
+		args    args
+		wantErr bool
+	}{
+		{
+			name: "Case 1: Success",
+			fields: fields{
+				QuestionUsecase: func() usecase.QuestionUsecase {
+					mocksQuestionUsecase := new(mocksQuestionUsecase.QuestionUsecase)
+					mocksQuestionUsecase.On("QuestionNumber2Detail", mock.Anything).Return(&domain.ResponseNumber2Detail{}, nil)
+					return mocksQuestionUsecase
+				}(),
+			},
+			args: args{
+				c: echo.New().NewContext(
+					httptest.NewRequest(http.MethodGet, "/number2/detail", nil),
+					httptest.NewRecorder(),
+				),
+			},
+			wantErr: false,
+		},
+		{
+			name: "Case 2: Error QuestionNumber2Detail",
+			fields: fields{
+				QuestionUsecase: func() usecase.QuestionUsecase {
+					mocksQuestionUsecase := new(mocksQuestionUsecase.QuestionUsecase)
+					mocksQuestionUsecase.On("QuestionNumber2Detail", mock.Anything).Return(&domain.ResponseNumber2Detail{}, errors.New("error"))
+					return mocksQuestionUsecase
+				}(),
+			},
+			args: args{
+				c: echo.New().NewContext(
+					httptest.NewRequest(http.MethodGet, "/number2/detail", nil),
+					httptest.NewRecorder(),
+				),
+			},
+			wantErr: false,
+		},
+		{
+			name: "Case 3: Error Params",
+			fields: fields{
+				QuestionUsecase: func() usecase.QuestionUsecase {
+					mocksQuestionUsecase := new(mocksQuestionUsecase.QuestionUsecase)
+					mocksQuestionUsecase.On("QuestionNumber2Detail", mock.Anything).Return(&domain.ResponseNumber2Detail{}, errors.New("error"))
+					return mocksQuestionUsecase
+				}(),
+			},
+			args: args{
+				c: echo.New().NewContext(
+					httptest.NewRequest(http.MethodGet, "/number2/detail", nil),
+					httptest.NewRecorder(),
+				),
+			},
+			wantErr: false,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			h := &EchoHandler{
+				QuestionUsecase: tt.fields.QuestionUsecase,
+			}
+			if err := h.Number2Detail(tt.args.c); (err != nil) != tt.wantErr {
+				t.Errorf("EchoHandler.Number2Detail() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
+}

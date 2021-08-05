@@ -76,11 +76,14 @@ func (q *QuestionUsecaseImpl) RemoveDuplicate(text []string) []string {
 	return result
 }
 
-func (q *QuestionUsecaseImpl) QuestionNumber2List(text string) (resp []domain.ResponseNumber2List, err error) {
-	_, err = shared.RequestHTTP("GET", "http://www.omdbapi.com/?apikey=faf7e5bb&s=Batman&page=1", nil, resp, nil)
-	return resp, err
+func (q *QuestionUsecaseImpl) QuestionNumber2List(params domain.ParamsNumber2) (resp *domain.ResponseNumber2List, err error) {
+	response := &domain.ResponseNumber2List{}
+	_, err = shared.RequestHTTP("GET", "http://www.omdbapi.com/?apikey=faf7e5bb&s="+params.Search+"&page="+params.Page, nil, response, nil)
+	return response, err
 }
 
-func (q *QuestionUsecaseImpl) QuestionNumber2Detail(text string) (resp domain.ResponseNumber2Detail, err error) {
-	return resp, nil
+func (q *QuestionUsecaseImpl) QuestionNumber2Detail(params domain.ParamsNumber2) (resp *domain.ResponseNumber2Detail, err error) {
+	response := &domain.ResponseNumber2Detail{}
+	_, err = shared.RequestHTTP("GET", "http://www.omdbapi.com/?apikey=faf7e5bb&i="+params.ID, nil, response, nil)
+	return response, err
 }

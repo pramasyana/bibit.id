@@ -33,6 +33,52 @@ func (_m *QuestionUsecase) QuestionNumber1() (domain.ResponseNumber1, error) {
 	return r0, r1
 }
 
+// QuestionNumber2Detail provides a mock function with given fields: params
+func (_m *QuestionUsecase) QuestionNumber2Detail(params domain.ParamsNumber2) (*domain.ResponseNumber2Detail, error) {
+	ret := _m.Called(params)
+
+	var r0 *domain.ResponseNumber2Detail
+	if rf, ok := ret.Get(0).(func(domain.ParamsNumber2) *domain.ResponseNumber2Detail); ok {
+		r0 = rf(params)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*domain.ResponseNumber2Detail)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(domain.ParamsNumber2) error); ok {
+		r1 = rf(params)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
+// QuestionNumber2List provides a mock function with given fields: params
+func (_m *QuestionUsecase) QuestionNumber2List(params domain.ParamsNumber2) (*domain.ResponseNumber2List, error) {
+	ret := _m.Called(params)
+
+	var r0 *domain.ResponseNumber2List
+	if rf, ok := ret.Get(0).(func(domain.ParamsNumber2) *domain.ResponseNumber2List); ok {
+		r0 = rf(params)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*domain.ResponseNumber2List)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(domain.ParamsNumber2) error); ok {
+		r1 = rf(params)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
 // QuestionNumber3 provides a mock function with given fields: text
 func (_m *QuestionUsecase) QuestionNumber3(text string) (domain.ResponseNumber3, error) {
 	ret := _m.Called(text)

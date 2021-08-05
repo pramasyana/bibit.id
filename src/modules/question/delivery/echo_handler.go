@@ -21,6 +21,8 @@ func NewEchoHandler(questionUsecase usecase.QuestionUsecase) *EchoHandler {
 
 func (h *EchoHandler) Mount(group *echo.Group) {
 	group.GET("/number1", h.Number1)
+	group.GET("/number2/list", h.Number2List)
+	group.GET("/number2/detail", h.Number2Detail)
 	group.POST("/number3", h.Number3)
 	group.POST("/number4", h.Number4)
 }
@@ -30,6 +32,35 @@ func (h *EchoHandler) Number1(c echo.Context) error {
 	response := new(shared.JSONSchemaTemplate)
 
 	resp, _ := h.QuestionUsecase.QuestionNumber1()
+
+	return response.SetSuccess(resp, "Success").ShowHTTPResponse(c)
+}
+
+// Number2List ...
+func (h *EchoHandler) Number2List(c echo.Context) error {
+	response := new(shared.JSONSchemaTemplate)
+
+	params := domain.ParamsNumber2{}
+	params.Search = c.QueryParam(`search`)
+	params.Page = c.QueryParam(`page`)
+	resp, err := h.QuestionUsecase.QuestionNumber2List(params)
+	if err != nil {
+		return response.SetFailed(http.StatusBadRequest, err.Error()).ShowHTTPResponse(c)
+	}
+
+	return response.SetSuccess(resp, "Success").ShowHTTPResponse(c)
+}
+
+// Number2Detail ...
+func (h *EchoHandler) Number2Detail(c echo.Context) error {
+	response := new(shared.JSONSchemaTemplate)
+
+	params := domain.ParamsNumber2{}
+	params.ID = c.QueryParam(`id`)
+	resp, err := h.QuestionUsecase.QuestionNumber2Detail(params)
+	if err != nil {
+		return response.SetFailed(http.StatusBadRequest, err.Error()).ShowHTTPResponse(c)
+	}
 
 	return response.SetSuccess(resp, "Success").ShowHTTPResponse(c)
 }
